@@ -1,0 +1,43 @@
+{
+  "name": "vue-segment-analytics",
+  "version": "0.0.1",
+  "description": "Vue plugin for segment analytics.js",
+  "main": "dist/vue-analytics.js",
+  "scripts": {
+    "dev": "webpack --config build/webpack.dev.conf.js -w",
+    "build": "webpack --config build/webpack.prod.conf.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kapiche/vue-segment-analytics"
+  },
+  "keywords": [
+    "segment",
+    "analytics"
+  ],
+  "author": {
+    "name": "Ryan Stuart",
+    "email": "ryan.stuart.85@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kapiche/vue-segment-analytics/issues"
+  },
+  "homepage": "https://github.com/Kapiche/vue-segment-analytics",
+  "devDependencies": {
+    "babel-core": "~6.24.1",
+    "babel-eslint": "~7.2.3",
+    "babel-loader": "~7.0.0",
+    "babel-preset-env": "~1.4.0",
+    "eslint": "~3.19.0",
+    "eslint-friendly-formatter": "~3.0.0",
+    "eslint-loader": "~1.7.1",
+    "friendly-errors-webpack-plugin": "~1.6.1",
+    "webpack": "~2.5.1",
+    "webpack-merge": "~4.1.0"
+  },
+  "dependencies": {
+    "load-script": "~1.0.0"
+  }
+}
