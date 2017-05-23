@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.1.0
+ * vue-segment-analytics v0.2.1
  * (c) 2017 Ryan Stuart
  * Released under the MIT License.
  */
@@ -45,7 +45,6 @@ function init(config, callback) {
   analytics.factory = function (method) {
     return function () {
       var args = Array.prototype.slice.call(arguments);
-      console.log(`Hit segment stub for ${method}`);
       if (config.debug === true) {
         if (window.console && console.log) {
           console.log(`[Segment Analytics Debug]: ${method} method called with ${args.length} args`);
