@@ -1,8 +1,8 @@
 {
   "name": "vue-segment-analytics",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue plugin for segment analytics.js",
-  "main": "dist/vue-analytics.js",
+  "main": "dist/vue-segment-analytics.js",
   "scripts": {
     "dev": "webpack --config build/webpack.dev.conf.js -w",
     "build": "webpack --config build/webpack.prod.conf.js",
