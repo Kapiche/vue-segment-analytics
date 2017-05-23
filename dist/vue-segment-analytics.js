@@ -309,3 +309,4 @@ function ieOnEnd (script, cb) {
 
 /***/ })
 /******/ ]);
+//# sourceMappingURL=vue-segment-analytics.js.map
