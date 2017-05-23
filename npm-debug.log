@@ -1,0 +1,141 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\ProgramData\\Chocolatey\\lib\\npm\\tools\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@1.4.9
+3 info using node@v6.9.1
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url Url {
+7 verbose parsed url   protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . C:\Users\ryans\AppData\Roaming\npm-cache\3a52ce78-.lock
+10 verbose tar pack [ 'C:\\Users\\ryans\\AppData\\Local\\Temp\\npm-1532--iJ87KWb\\1495499967112-0.04502255125914867\\tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+12 verbose folder .
+13 info prepublish vue-segment-analytics@0.0.4
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. C:\Users\ryans\AppData\Roaming\npm-cache\1f1177db-tar.lock
+16 silly lockFile 48f2048d-7112-0-04502255125914867-tmp-tgz tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+17 verbose lock tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz C:\Users\ryans\AppData\Roaming\npm-cache\48f2048d-7112-0-04502255125914867-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 48f2048d-7112-0-04502255125914867-tmp-tgz tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+21 silly lockFile 48f2048d-7112-0-04502255125914867-tmp-tgz tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+22 verbose tar unpack C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+23 silly lockFile c5492073--segment-analytics-0-0-4-package tar://C:\Users\ryans\AppData\Roaming\npm-cache\vue-segment-analytics\0.0.4\package
+24 verbose lock tar://C:\Users\ryans\AppData\Roaming\npm-cache\vue-segment-analytics\0.0.4\package C:\Users\ryans\AppData\Roaming\npm-cache\c5492073--segment-analytics-0-0-4-package.lock
+25 silly lockFile 48f2048d-7112-0-04502255125914867-tmp-tgz tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+26 verbose lock tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz C:\Users\ryans\AppData\Roaming\npm-cache\48f2048d-7112-0-04502255125914867-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+30 silly gunzTarPerm extractEntry .npmignore
+31 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+32 silly gunzTarPerm extractEntry README.md
+33 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+34 silly gunzTarPerm extractEntry LICENSE
+35 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+36 silly gunzTarPerm extractEntry .babelrc
+37 silly gunzTarPerm modified mode [ '.babelrc', 438, 420 ]
+38 silly gunzTarPerm extractEntry .eslintrc
+39 silly gunzTarPerm modified mode [ '.eslintrc', 438, 420 ]
+40 silly gunzTarPerm extractEntry dist/vue-segment-analytics.js
+41 silly gunzTarPerm modified mode [ 'dist/vue-segment-analytics.js', 438, 420 ]
+42 silly gunzTarPerm extractEntry dist/vue-segment-analytics.js.map
+43 silly gunzTarPerm modified mode [ 'dist/vue-segment-analytics.js.map', 438, 420 ]
+44 silly gunzTarPerm extractEntry src/index.js
+45 silly gunzTarPerm modified mode [ 'src/index.js', 438, 420 ]
+46 silly gunzTarPerm extractEntry src/init.js
+47 silly gunzTarPerm modified mode [ 'src/init.js', 438, 420 ]
+48 silly lockFile c5492073--segment-analytics-0-0-4-package tar://C:\Users\ryans\AppData\Roaming\npm-cache\vue-segment-analytics\0.0.4\package
+49 silly lockFile c5492073--segment-analytics-0-0-4-package tar://C:\Users\ryans\AppData\Roaming\npm-cache\vue-segment-analytics\0.0.4\package
+50 silly lockFile 48f2048d-7112-0-04502255125914867-tmp-tgz tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+51 silly lockFile 48f2048d-7112-0-04502255125914867-tmp-tgz tar://C:\Users\ryans\AppData\Local\Temp\npm-1532--iJ87KWb\1495499967112-0.04502255125914867\tmp.tgz
+52 silly lockFile 3a52ce78- .
+53 silly lockFile 3a52ce78- .
+54 silly publish { name: 'vue-segment-analytics',
+54 silly publish   version: '0.0.4',
+54 silly publish   description: 'Vue plugin for segment analytics.js',
+54 silly publish   main: 'dist/vue-segment-analytics.js',
+54 silly publish   scripts:
+54 silly publish    { dev: 'webpack --config build/webpack.dev.conf.js -w',
+54 silly publish      build: 'webpack --config build/webpack.prod.conf.js',
+54 silly publish      test: 'echo "Error: no test specified" && exit 1' },
+54 silly publish   repository:
+54 silly publish    { type: 'git',
+54 silly publish      url: 'https://github.com/Kapiche/vue-segment-analytics' },
+54 silly publish   keywords: [ 'segment', 'analytics' ],
+54 silly publish   author: { name: 'Ryan Stuart', email: 'ryan.stuart.85@gmail.com' },
+54 silly publish   license: 'MIT',
+54 silly publish   bugs: { url: 'https://github.com/Kapiche/vue-segment-analytics/issues' },
+54 silly publish   homepage: 'https://github.com/Kapiche/vue-segment-analytics',
+54 silly publish   devDependencies:
+54 silly publish    { 'babel-core': '~6.24.1',
+54 silly publish      'babel-eslint': '~7.2.3',
+54 silly publish      'babel-loader': '~7.0.0',
+54 silly publish      'babel-preset-env': '~1.4.0',
+54 silly publish      eslint: '~3.19.0',
+54 silly publish      'eslint-friendly-formatter': '~3.0.0',
+54 silly publish      'eslint-loader': '~1.7.1',
+54 silly publish      'friendly-errors-webpack-plugin': '~1.6.1',
+54 silly publish      webpack: '~2.5.1',
+54 silly publish      'webpack-merge': '~4.1.0' },
+54 silly publish   dependencies: { 'load-script': '~1.0.0' },
+54 silly publish   readme: '<p align="center">\n <a href="https://www.npmjs.com/package/vue-segment-analytics">\n  <img src="https://img.shields.io/npm/dm/vue-segment-analytics.svg" />\n <a/>\n</p>\n\n# vue-segment-analytics\n\nVue plugin for Segment.io Analytics\n\n## Requirements\n\nVue ^2.0.0\n\n## TL;DR\n\n```bash\nnpm install --save-dev vue-segment-analytics\n```\n\n```js\nimport Vue from \'vue\'\nimport VueSegmentAnalytics from \'vue-segment-analytics\'\n\nVue.use(VueSegmentAnalytics, {\n  id: \'XXXXX\',\n  router // Optional\n})\n```\n',
+54 silly publish   readmeFilename: 'README.md',
+54 silly publish   _id: 'vue-segment-analytics@0.0.4',
+54 silly publish   _shasum: '3c94cb56990d7fb59971bcf8dec6bad95665aaca',
+54 silly publish   _from: '.' }
+55 verbose url raw vue-segment-analytics
+56 verbose url resolving [ 'https://registry.npmjs.org/', './vue-segment-analytics' ]
+57 verbose url resolved https://registry.npmjs.org/vue-segment-analytics
+58 info trying registry request attempt 1 at 10:39:27 AM
+59 http PUT https://registry.npmjs.org/vue-segment-analytics
+60 http 403 https://registry.npmjs.org/vue-segment-analytics
+61 verbose headers { 'content-type': 'application/json',
+61 verbose headers   'cache-control': 'max-age=300',
+61 verbose headers   'content-length': '95',
+61 verbose headers   'accept-ranges': 'bytes',
+61 verbose headers   date: 'Tue, 23 May 2017 00:39:31 GMT',
+61 verbose headers   via: '1.1 varnish',
+61 verbose headers   connection: 'close',
+61 verbose headers   'x-served-by': 'cache-bne7722-BNE',
+61 verbose headers   'x-cache': 'MISS',
+61 verbose headers   'x-cache-hits': '0',
+61 verbose headers   'x-timer': 'S1495499971.512538,VS0,VE825',
+61 verbose headers   vary: 'Accept-Encoding' }
+62 error publish Failed PUT 403
+63 error Error: "You cannot publish over the previously published version 0.0.4." : vue-segment-analytics
+63 error     at RegClient.<anonymous> (C:\ProgramData\Chocolatey\lib\npm\tools\node_modules\npm\node_modules\npm-registry-client\lib\request.js:273:14)
+63 error     at Request._callback (C:\ProgramData\Chocolatey\lib\npm\tools\node_modules\npm\node_modules\npm-registry-client\lib\request.js:211:65)
+63 error     at Request.self.callback (C:\ProgramData\Chocolatey\lib\npm\tools\node_modules\npm\node_modules\request\request.js:123:22)
+63 error     at emitTwo (events.js:106:13)
+63 error     at Request.emit (events.js:191:7)
+63 error     at Request.<anonymous> (C:\ProgramData\Chocolatey\lib\npm\tools\node_modules\npm\node_modules\request\request.js:893:14)
+63 error     at emitOne (events.js:101:20)
+63 error     at Request.emit (events.js:188:7)
+63 error     at IncomingMessage.<anonymous> (C:\ProgramData\Chocolatey\lib\npm\tools\node_modules\npm\node_modules\request\request.js:844:12)
+63 error     at emitNone (events.js:91:20)
+64 error If you need help, you may report this *entire* log,
+64 error including the npm and node versions, at:
+64 error     <http://github.com/npm/npm/issues>
+65 error System Windows_NT 10.0.14393
+66 error command "C:\\Program Files\\nodejs\\node.exe" "C:\\ProgramData\\Chocolatey\\lib\\npm\\tools\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+67 error cwd C:\Users\ryans\Workspace\javascript\vue-segment-analytics
+68 error node -v v6.9.1
+69 error npm -v 1.4.9
+70 verbose exit [ 1, true ]
