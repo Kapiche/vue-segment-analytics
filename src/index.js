@@ -7,22 +7,36 @@ import init from './init'
  */
 function install (Vue, options = {}) {
   const config = Object.assign({
-    debug: false
+    debug: false,
+    pageCategory: '',
   }, options)
 
   let analytics = init(config, () => {
+    // Page tracking
     if (config.router !== undefined) {
       config.router.afterEach((to, from) => {
         // Make a page call for each navigation event
-        window.analytics.page(to.name || '', {
+        window.analytics.page(config.pageCategory, to.name || '', {
           path: to.fullPath,
-          referrer: from !== undefined ? from.fullPath : ''
+          referrer: from.fullPath
         })
       })
     }
   })
 
-  Vue.prototype.$segment = Vue.$segment = analytics
+  // Setup instance access
+  Object.defineProperty(Vue, '$segment', {
+    get () { return window.analytics }
+  })
+  Object.defineProperty(Vue.prototype, '$segment', {
+    get () { return this._segment || window.analytics },
+    set (val) { this._segment = val }
+  })
+  Vue.mixin({
+    beforeCreate: function () {
+      this.$segment = window.analytics || analytics
+    }
+  })
 }
 
 export default { install }

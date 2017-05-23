@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.0.5
+ * vue-segment-analytics v0.1.0
  * (c) 2017 Ryan Stuart
  * Released under the MIT License.
  */
@@ -45,6 +45,7 @@ function init(config, callback) {
   analytics.factory = function (method) {
     return function () {
       var args = Array.prototype.slice.call(arguments);
+      console.log(`Hit segment stub for ${method}`);
       if (config.debug === true) {
         if (window.console && console.log) {
           console.log(`[Segment Analytics Debug]: ${method} method called with ${args.length} args`);
@@ -93,7 +94,7 @@ function init(config, callback) {
     }
   }
 
-  return analytics;
+  return window.analytics;
 }
 
 /**
@@ -103,22 +104,42 @@ function init(config, callback) {
  */
 function install(Vue, options = {}) {
   const config = Object.assign({
-    debug: false
+    debug: false,
+    pageCategory: ''
   }, options);
 
   let analytics = init(config, () => {
+    // Page tracking
     if (config.router !== undefined) {
       config.router.afterEach((to, from) => {
         // Make a page call for each navigation event
-        window.analytics.page(to.name || '', {
+        window.analytics.page(config.pageCategory, to.name || '', {
           path: to.fullPath,
-          referrer: from !== undefined ? from.fullPath : ''
+          referrer: from.fullPath
         });
       });
     }
   });
 
-  Vue.prototype.$segment = Vue.$segment = analytics;
+  // Setup instance access
+  Object.defineProperty(Vue, '$segment', {
+    get() {
+      return window.analytics;
+    }
+  });
+  Object.defineProperty(Vue.prototype, '$segment', {
+    get() {
+      return this._segment || window.analytics;
+    },
+    set(val) {
+      this._segment = val;
+    }
+  });
+  Vue.mixin({
+    beforeCreate: function () {
+      this.$segment = window.analytics || analytics;
+    }
+  });
 }
 
 var index = { install };

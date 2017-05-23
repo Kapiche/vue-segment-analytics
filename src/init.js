@@ -51,6 +51,7 @@ export default function init (config, callback) {
   analytics.factory = function (method) {
     return function () {
       var args = Array.prototype.slice.call(arguments)
+      console.log(`Hit segment stub for ${method}`)
       if (config.debug === true) {
         if (window.console && console.log) {
           console.log(`[Segment Analytics Debug]: ${method} method called with ${args.length} args`)
@@ -99,5 +100,5 @@ export default function init (config, callback) {
     }
   }
 
-  return analytics
+  return window.analytics
 }
