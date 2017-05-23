@@ -1,4 +1,4 @@
-import init from 'src/init'
+import init from './init'
 
 /**
  * Vue installer
@@ -6,13 +6,13 @@ import init from 'src/init'
  * @param  {Object} [options={}]
  */
 function install (Vue, options = {}) {
-  let config = Object.assign({
+  const config = Object.assign({
     debug: false
   }, options)
 
-  let analytics = init(config, function () {
+  let analytics = init(config, () => {
     if (config.router !== undefined) {
-      router.afterEach((to, from) => {
+      config.router.afterEach((to, from) => {
         // Make a page call for each navigation event
         window.analytics.page(to.name || '', {
           path: to.fullPath,

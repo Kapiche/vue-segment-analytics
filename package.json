@@ -1,11 +1,11 @@
 {
   "name": "vue-segment-analytics",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Vue plugin for segment analytics.js",
   "main": "dist/vue-segment-analytics.js",
   "scripts": {
     "dev": "webpack --config build/webpack.dev.conf.js -w",
-    "build": "webpack --config build/webpack.prod.conf.js",
+    "build": "node config/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -30,10 +30,15 @@
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.0.0",
     "babel-preset-env": "~1.4.0",
+    "babel-preset-es2016": "~6.24.1",
     "eslint": "~3.19.0",
     "eslint-friendly-formatter": "~3.0.0",
     "eslint-loader": "~1.7.1",
     "friendly-errors-webpack-plugin": "~1.6.1",
+    "rollup": "~0.41.6",
+    "rollup-plugin-babel": "~2.7.1",
+    "rollup-plugin-uglify": "~2.0.1",
+    "uglify-js": "~3.0.10",
     "webpack": "~2.5.1",
     "webpack-merge": "~4.1.0"
   },

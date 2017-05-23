@@ -53,7 +53,7 @@ export default function init (config, callback) {
       var args = Array.prototype.slice.call(arguments)
       if (config.debug === true) {
         if (window.console && console.log) {
-          console.log(`[Segment Analytics Debug]: ${method.name} called with args ${args}`)
+          console.log(`[Segment Analytics Debug]: ${method} method called with ${args.length} args`)
         }
       } else {
         args.unshift(method)
