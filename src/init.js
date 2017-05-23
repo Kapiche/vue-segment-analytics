@@ -86,13 +86,17 @@ export default function init (config, callback) {
 
         clearInterval(poll)
 
-        // the callback is fired when window.ga is available and before any other hit is sent
-        // see MatteoGabriele/vue-analytics/issues/20
+        // the callback is fired when window.analytics is available and before any other hit is sent
         if (callback && typeof callback === 'function') {
           callback()
         }
       }, 10)
     })
+  } else {
+    // Still run the callback in debug mode.
+    if (callback && typeof callback === 'function') {
+      callback()
+    }
   }
 
   return analytics
