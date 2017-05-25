@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.2.1
+ * vue-segment-analytics v0.3.0
  * (c) 2017 Ryan Stuart
  * Released under the MIT License.
  */
@@ -47,7 +47,7 @@ function init(config, callback) {
       var args = Array.prototype.slice.call(arguments);
       if (config.debug === true) {
         if (window.console && console.log) {
-          console.log(`[Segment Analytics Debug]: ${method} method called with ${args.length} args`);
+          console.log('[Segment Analytics Debug]: ' + method + ' method called with ' + args.length + ' args');
         }
       } else {
         args.unshift(method);
@@ -61,19 +61,40 @@ function init(config, callback) {
   analytics.SNIPPET_VERSION = '4.0.0';
 
   // For each of our methods, generate a queueing stub.
-  for (let key of analytics.methods) {
-    analytics[key] = analytics.factory(key);
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
+
+  try {
+    for (var _iterator = analytics.methods[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var key = _step.value;
+
+      analytics[key] = analytics.factory(key);
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
   }
 
   if (config.debug === false) {
-    const source = `https://cdn.segment.com/analytics.js/v1/${config.id}/analytics.min.js`;
+    var source = 'https://cdn.segment.com/analytics.js/v1/' + config.id + '/analytics.min.js';
     loadScript(source, function (error, script) {
       if (error) {
         console.warn('Ops! Is not possible to load Segment Analytics script');
         return;
       }
 
-      const poll = setInterval(function () {
+      var poll = setInterval(function () {
         if (!window.analytics) {
           return;
         }
@@ -101,16 +122,18 @@ function init(config, callback) {
  * @param  {Vue instance} Vue
  * @param  {Object} [options={}]
  */
-function install(Vue, options = {}) {
-  const config = Object.assign({
+function install(Vue) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  var config = Object.assign({
     debug: false,
     pageCategory: ''
   }, options);
 
-  let analytics = init(config, () => {
+  var analytics = init(config, function () {
     // Page tracking
     if (config.router !== undefined) {
-      config.router.afterEach((to, from) => {
+      config.router.afterEach(function (to, from) {
         // Make a page call for each navigation event
         window.analytics.page(config.pageCategory, to.name || '', {
           path: to.fullPath,
@@ -122,26 +145,26 @@ function install(Vue, options = {}) {
 
   // Setup instance access
   Object.defineProperty(Vue, '$segment', {
-    get() {
+    get: function get() {
       return window.analytics;
     }
   });
   Object.defineProperty(Vue.prototype, '$segment', {
-    get() {
+    get: function get() {
       return this._segment || window.analytics;
     },
-    set(val) {
+    set: function set(val) {
       this._segment = val;
     }
   });
   Vue.mixin({
-    beforeCreate: function () {
+    beforeCreate: function beforeCreate() {
       this.$segment = window.analytics || analytics;
     }
   });
 }
 
-var index = { install };
+var index = { install: install };
 
 return index;
 

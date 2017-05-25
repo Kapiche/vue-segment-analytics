@@ -1,12 +1,13 @@
 {
   "name": "vue-segment-analytics",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Vue plugin for segment analytics.js",
   "main": "dist/vue-segment-analytics.js",
   "scripts": {
     "dev": "webpack --config build/webpack.dev.conf.js -w",
     "build": "node config/build.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js src"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,6 @@
     "babel-eslint": "~7.2.3",
     "babel-loader": "~7.0.0",
     "babel-preset-env": "~1.4.0",
-    "babel-preset-es2016": "~6.24.1",
     "eslint": "~3.19.0",
     "eslint-friendly-formatter": "~3.0.0",
     "eslint-loader": "~1.7.1",
