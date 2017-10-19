@@ -29,13 +29,7 @@ function install (Vue, options = {}) {
     get () { return window.analytics }
   })
   Object.defineProperty(Vue.prototype, '$segment', {
-    get () { return this._segment || window.analytics },
-    set (val) { this._segment = val }
-  })
-  Vue.mixin({
-    beforeCreate: function () {
-      this.$segment = window.analytics || analytics
-    }
+    get () { return window.analytics }
   })
 }
 

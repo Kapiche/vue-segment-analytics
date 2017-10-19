@@ -151,15 +151,7 @@ function install(Vue) {
   });
   Object.defineProperty(Vue.prototype, '$segment', {
     get: function get() {
-      return this._segment || window.analytics;
-    },
-    set: function set(val) {
-      this._segment = val;
-    }
-  });
-  Vue.mixin({
-    beforeCreate: function beforeCreate() {
-      this.$segment = window.analytics || analytics;
+      return window.analytics;
     }
   });
 }
