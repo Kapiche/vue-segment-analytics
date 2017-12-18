@@ -11,18 +11,18 @@ function install (Vue, options = {}) {
     pageCategory: '',
   }, options)
 
-  let analytics = init(config, () => {
-    // Page tracking
-    if (config.router !== undefined) {
-      config.router.afterEach((to, from) => {
-        // Make a page call for each navigation event
-        window.analytics.page(config.pageCategory, to.name || '', {
-          path: to.fullPath,
-          referrer: from.fullPath
-        })
+  let analytics = init(config, () => {})
+  
+  // Page tracking
+  if (config.router !== undefined) {
+    config.router.afterEach((to, from) => {
+      // Make a page call for each navigation event
+      analytics.page(config.pageCategory, to.name || '', {
+        path: to.fullPath,
+        referrer: from.fullPath
       })
-    }
-  })
+    })
+  }
 
   // Setup instance access
   Object.defineProperty(Vue, '$segment', {
