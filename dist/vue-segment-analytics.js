@@ -1,6 +1,6 @@
 /*!
  * vue-segment-analytics v0.3.0
- * (c) 2017 Ryan Stuart
+ * (c) 2019 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -130,18 +130,18 @@ function install(Vue) {
     pageCategory: ''
   }, options);
 
-  var analytics = init(config, function () {
-    // Page tracking
-    if (config.router !== undefined) {
-      config.router.afterEach(function (to, from) {
-        // Make a page call for each navigation event
-        window.analytics.page(config.pageCategory, to.name || '', {
-          path: to.fullPath,
-          referrer: from.fullPath
-        });
+  var analytics = init(config, function () {});
+
+  // Page tracking
+  if (config.router !== undefined) {
+    config.router.afterEach(function (to, from) {
+      // Make a page call for each navigation event
+      analytics.page(config.pageCategory, to.name || '', {
+        path: to.fullPath,
+        referrer: from.fullPath
       });
-    }
-  });
+    });
+  }
 
   // Setup instance access
   Object.defineProperty(Vue, '$segment', {
