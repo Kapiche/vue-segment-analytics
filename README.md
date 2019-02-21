@@ -27,3 +27,6 @@ Vue.use(VueSegmentAnalytics, {
   router // Optional
 })
 ```
+
+## 🚀 Segment Vue Quickstart
+Interested in writing analytics code once? With Segment, you can collect customer data from any source (web, mobile, server, CRM, etc.) and send it to over 250+ destinations (Google Analytics, Amplitude, Mixpanel, etc.) via the Segment dashboard. Follow the [tailored guide for Vue](https://github.com/segmentio/analytics-vue) to get setup.
