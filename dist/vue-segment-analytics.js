@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.3.0
+ * vue-segment-analytics v0.3.2
  * (c) 2019 Ryan Stuart
  * Released under the MIT License.
  */
@@ -36,7 +36,7 @@ function init(config, callback) {
   analytics.invoked = true;
 
   // A list of the methods in Analytics.js to stub.
-  analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on'];
+  analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'page', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on'];
 
   // Define a factory to create stubs. These are placeholders
   // for methods in Analytics.js so that you never have to wait
