@@ -38,7 +38,7 @@
     "rollup": "~0.41.6",
     "rollup-plugin-babel": "~2.7.1",
     "rollup-plugin-uglify": "~2.0.1",
-    "uglify-js": "~3.0.10",
+    "uglify-js": "~3.7.2",
     "webpack": "~2.5.1",
     "webpack-merge": "~4.1.0"
   },
