@@ -1,6 +1,6 @@
 /*!
  * vue-segment-analytics v0.3.2
- * (c) 2019 Ryan Stuart
+ * (c) 2020 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -136,7 +136,7 @@ function install(Vue) {
   if (config.router !== undefined) {
     config.router.afterEach(function (to, from) {
       // Make a page call for each navigation event
-      analytics.page(config.pageCategory, to.name || '', {
+      window.analytics.page(config.pageCategory, to.name || '', {
         path: to.fullPath,
         referrer: from.fullPath
       });

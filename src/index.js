@@ -17,7 +17,7 @@ function install (Vue, options = {}) {
   if (config.router !== undefined) {
     config.router.afterEach((to, from) => {
       // Make a page call for each navigation event
-      analytics.page(config.pageCategory, to.name || '', {
+      window.analytics.page(config.pageCategory, to.name || '', {
         path: to.fullPath,
         referrer: from.fullPath
       })
