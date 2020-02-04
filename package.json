@@ -34,7 +34,7 @@
     "eslint": "~3.19.0",
     "eslint-friendly-formatter": "~4.0.1",
     "eslint-loader": "~1.7.1",
-    "friendly-errors-webpack-plugin": "~1.6.1",
+    "friendly-errors-webpack-plugin": "~1.7.0",
     "rollup": "~0.41.6",
     "rollup-plugin-babel": "~2.7.1",
     "rollup-plugin-uglify": "~4.0.0",
