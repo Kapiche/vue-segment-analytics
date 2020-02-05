@@ -30,7 +30,7 @@ export default function init (config, callback) {
     'trackClick',
     'trackLink',
     'trackForm',
-    'page',
+    'pageview',
     'identify',
     'reset',
     'group',
