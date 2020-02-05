@@ -27,7 +27,7 @@
   "homepage": "https://github.com/Kapiche/vue-segment-analytics",
   "devDependencies": {
     "babel-core": "~6.26.3",
-    "babel-eslint": "~9.0.0",
+    "babel-eslint": "~10.0.3",
     "babel-loader": "~7.1.5",
     "babel-preset-env": "~1.4.0",
     "eslint": "~4.18.2",
