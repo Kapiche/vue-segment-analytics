@@ -1,13 +1,13 @@
 import loadScript from 'load-script'
 
-export default function init (config, callback) {
+export default function init(config, callback) {
   if (!config.id || !config.id.length) {
     console.warn('Please enter a Segment.io tracking ID')
     return
   }
 
   // Create a queue, but don't obliterate an existing one!
-  var analytics = window.analytics = window.analytics || []
+  var analytics = (window.analytics = window.analytics || [])
 
   // If the real analytics.js is already on the page return.
   if (analytics.initialize) return
@@ -41,7 +41,7 @@ export default function init (config, callback) {
     'page',
     'once',
     'off',
-    'on'
+    'on',
   ]
 
   // Define a factory to create stubs. These are placeholders
@@ -53,7 +53,9 @@ export default function init (config, callback) {
       var args = Array.prototype.slice.call(arguments)
       if (config.debug === true) {
         if (window.console && console.log) {
-          console.log(`[Segment Analytics Debug]: ${method} method called with ${args.length} args`)
+          console.log(
+            `[Segment Analytics Debug]: ${method} method called with ${args.length} args`
+          )
         }
       } else {
         args.unshift(method)
@@ -64,16 +66,17 @@ export default function init (config, callback) {
   }
 
   // Add a version to keep track of what's in the wild.
-  analytics.SNIPPET_VERSION = '4.0.0';
+  analytics.SNIPPET_VERSION = '4.1.0'
 
   // For each of our methods, generate a queueing stub.
   for (let key of analytics.methods) {
-    analytics[key] = analytics.factory(key);
+    analytics[key] = analytics.factory(key)
   }
 
   if (config.debug === false) {
     const source = `https://cdn.segment.com/analytics.js/v1/${config.id}/analytics.min.js`
-    loadScript(source, function (error, script) {
+
+    const startLoading = () => loadScript(source, function (error, script) {
       if (error) {
         console.warn('Ops! Is not possible to load Segment Analytics script')
         return
@@ -86,12 +89,31 @@ export default function init (config, callback) {
 
         clearInterval(poll)
 
-        // the callback is fired when window.analytics is available and before any other hit is sent
+        // The callback is fired when window.analytics is available and before any other hit is sent
         if (callback && typeof callback === 'function') {
           callback()
         }
       }, 10)
     })
+
+    if (config.delayLoad) {
+      // Wait for the user to start scrolling before loading Segment.
+      window.addEventListener(
+        'scroll',
+        () => {
+
+          setTimeout(() => {
+            // Load when browser is idle if supported.
+            'requestIdleCallback' in window
+              ? requestIdleCallback(() => startLoading())
+              : startLoading()
+          }, config.delayLoadTime || 1000)
+        },
+        { once: true }
+      )
+    } else {
+      startLoading()
+    }
   } else {
     // Still run the callback in debug mode.
     if (callback && typeof callback === 'function') {
