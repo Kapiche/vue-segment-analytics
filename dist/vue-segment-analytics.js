@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.4.0
+ * vue-segment-analytics v0.4.1
  * (c) 2020 Ryan Stuart
  * Released under the MIT License.
  */
@@ -58,7 +58,7 @@
     };
 
     // Add a version to keep track of what's in the wild.
-    analytics.SNIPPET_VERSION = '4.0.0';
+    analytics.SNIPPET_VERSION = '4.1.0';
 
     // For each of our methods, generate a queueing stub.
     var _iteratorNormalCompletion = true;
@@ -88,25 +88,43 @@
 
     if (config.debug === false) {
       var source = 'https://cdn.segment.com/analytics.js/v1/' + config.id + '/analytics.min.js';
-      loadScript(source, function (error, script) {
-        if (error) {
-          console.warn('Ops! Is not possible to load Segment Analytics script');
-          return;
-        }
 
-        var poll = setInterval(function () {
-          if (!window.analytics) {
+      var startLoading = function startLoading() {
+        return loadScript(source, function (error, script) {
+          if (error) {
+            console.warn('Ops! Is not possible to load Segment Analytics script');
             return;
           }
 
-          clearInterval(poll);
+          var poll = setInterval(function () {
+            if (!window.analytics) {
+              return;
+            }
 
-          // the callback is fired when window.analytics is available and before any other hit is sent
-          if (callback && typeof callback === 'function') {
-            callback();
-          }
-        }, 10);
-      });
+            clearInterval(poll);
+
+            // The callback is fired when window.analytics is available and before any other hit is sent
+            if (callback && typeof callback === 'function') {
+              callback();
+            }
+          }, 10);
+        });
+      };
+
+      if (config.delayLoad) {
+        // Wait for the user to start scrolling before loading Segment.
+        window.addEventListener('scroll', function () {
+
+          setTimeout(function () {
+            // Load when browser is idle if supported.
+            'requestIdleCallback' in window ? requestIdleCallback(function () {
+              return startLoading();
+            }) : startLoading();
+          }, config.delayLoadTime || 1000);
+        }, { once: true });
+      } else {
+        startLoading();
+      }
     } else {
       // Still run the callback in debug mode.
       if (callback && typeof callback === 'function') {
@@ -135,11 +153,17 @@
     // Page tracking
     if (config.router !== undefined) {
       config.router.afterEach(function (to, from) {
-        // Make a page call for each navigation event
-        window.analytics.page(config.pageCategory, to.name || '', {
-          path: to.fullPath,
-          referrer: from.fullPath
-        });
+        if (!analytics && from) {
+          // If page is changed before scroll, load segment now.
+          config.delayLoad = false;
+          analytics = init(config, function () {});
+        } else {
+          // Make a page call for each navigation event
+          window.analytics.page(config.pageCategory, to.name || '', {
+            path: to.fullPath,
+            referrer: from.fullPath
+          });
+        }
       });
     }
 
