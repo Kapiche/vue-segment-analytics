@@ -1,6 +1,6 @@
 /*!
- * vue-segment-analytics v0.4.0
- * (c) 2020 Ryan Stuart
+ * vue-segment-analytics v0.4.1
+ * (c) 2021 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
