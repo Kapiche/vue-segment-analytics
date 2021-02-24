@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node config/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --ext .js src"
+    "lint": "eslint -f @microsoft/eslint-formatter-sarif -o results.sarif --ext .js src "
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/Kapiche/vue-segment-analytics",
   "devDependencies": {
+    "@microsoft/eslint-formatter-sarif": "^2.1.5",
     "babel-core": "~6.26.3",
     "babel-eslint": "~9.0.0",
     "babel-loader": "~7.1.5",
