@@ -63,6 +63,11 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
+    - name: Install dependencies
+      run: |
+        node -v
+        npm ci --no-optional
+
     - name: Run a build
       run: |
         npm run build
