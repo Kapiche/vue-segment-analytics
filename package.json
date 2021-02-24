@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/Kapiche/vue-segment-analytics",
   "devDependencies": {
-    "@microsoft/eslint-formatter-sarif": "^2.1.5",
     "babel-core": "~6.26.3",
     "babel-eslint": "~9.0.0",
     "babel-loader": "~7.1.5",
@@ -35,6 +34,7 @@
     "eslint-friendly-formatter": "~4.0.1",
     "eslint-loader": "~1.7.1",
     "friendly-errors-webpack-plugin": "~1.7.0",
+    "@microsoft/eslint-formatter-sarif": "^2.1.5",
     "rollup": "~1.31.0",
     "rollup-plugin-babel": "~3.0.7"
   },
