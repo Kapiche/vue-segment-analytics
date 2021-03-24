@@ -39,6 +39,7 @@ Inspired by: https://www.gatsbyjs.org/blog/2019-08-30-speed-up-your-time-to-inte
 ### Config Options
 
 `delayLoad` - Set to true to enable above improvements. Defaults to `false`
+
 `delayLoadTime` - Time in ms to delay loading script. `delayLoad` must be enabled. Defaults to `1000`
 
 ### Known Issues
