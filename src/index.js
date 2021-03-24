@@ -29,6 +29,14 @@ function install(Vue, options = {}) {
           path: to.fullPath,
           referrer: from.fullPath,
         })
+        console.log('Page Track:', {
+          category: config.pageCategory,
+          name: to.name || '',
+          params: {
+            path: to.fullPath,
+            referrer: from.fullPath,
+          },
+        })
       }
     })
   }
