@@ -1,6 +1,6 @@
 /*!
- * vue-segment-analytics v0.4.1
- * (c) 2020 Ryan Stuart
+ * vue-segment-analytics v0.4.2
+ * (c) 2021 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -163,6 +163,14 @@
             path: to.fullPath,
             referrer: from.fullPath
           });
+          console.log('Page Track:', {
+            category: config.pageCategory,
+            name: to.name || '',
+            params: {
+              path: to.fullPath,
+              referrer: from.fullPath
+            }
+          });
         }
       });
     }
@@ -177,6 +185,12 @@
       get: function get() {
         return window.analytics;
       }
+    });
+
+    // Send first page
+    window.analytics.page(config.pageCategory, to.name || '', {
+      path: window.location.pathname,
+      referrer: document.referrer
     });
   }
 

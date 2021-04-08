@@ -52,6 +52,12 @@ function install(Vue, options = {}) {
       return window.analytics
     },
   })
+
+  // Send first page
+  window.analytics.page(config.pageCategory, to.name || '', {
+    path: window.location.pathname,
+    referrer: document.referrer,
+  })
 }
 
 export default { install }
