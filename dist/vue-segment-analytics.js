@@ -148,6 +148,7 @@
       pageCategory: ''
     }, options);
 
+    var loaded = false;
     var analytics = init(config, function () {});
 
     // Page tracking
@@ -158,17 +159,24 @@
           config.delayLoad = false;
           analytics = init(config, function () {});
         } else {
+          var referrer = from.fullPath;
+          if (!loaded) {
+            referrer = document.referrer;
+            loaded = true;
+          }
+
           // Make a page call for each navigation event
           window.analytics.page(config.pageCategory, to.name || '', {
             path: to.fullPath,
-            referrer: from.fullPath
+            referrer: referrer
           });
+
           console.log('Page Track:', {
             category: config.pageCategory,
             name: to.name || '',
             params: {
               path: to.fullPath,
-              referrer: from.fullPath
+              referrer: referrer
             }
           });
         }
@@ -186,9 +194,6 @@
         return window.analytics;
       }
     });
-
-    // Send first page
-    window.analytics.page();
   }
 
   var index = { install: install };

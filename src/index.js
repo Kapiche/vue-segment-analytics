@@ -14,6 +14,7 @@ function install(Vue, options = {}) {
     options
   )
 
+  let loaded = false
   let analytics = init(config, () => {})
 
   // Page tracking
@@ -24,17 +25,24 @@ function install(Vue, options = {}) {
         config.delayLoad = false
         analytics = init(config, () => {})
       } else {
+        let referrer = from.fullPath
+        if (!loaded) {
+          referrer = document.referrer
+          loaded = true
+        }
+
         // Make a page call for each navigation event
         window.analytics.page(config.pageCategory, to.name || '', {
           path: to.fullPath,
-          referrer: from.fullPath,
+          referrer,
         })
+
         console.log('Page Track:', {
           category: config.pageCategory,
           name: to.name || '',
           params: {
             path: to.fullPath,
-            referrer: from.fullPath,
+            referrer,
           },
         })
       }
@@ -52,9 +60,6 @@ function install(Vue, options = {}) {
       return window.analytics
     },
   })
-
-  // Send first page
-  window.analytics.page()
 }
 
 export default { install }
