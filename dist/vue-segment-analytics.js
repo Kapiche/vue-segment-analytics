@@ -188,10 +188,7 @@
     });
 
     // Send first page
-    window.analytics.page(config.pageCategory, to.name || '', {
-      path: window.location.pathname,
-      referrer: document.referrer
-    });
+    window.analytics.page();
   }
 
   var index = { install: install };
