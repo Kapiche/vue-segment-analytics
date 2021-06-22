@@ -1,0 +1,1 @@
+# Vue Segment Analytics Changelog
