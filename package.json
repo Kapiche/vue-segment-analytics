@@ -1,6 +1,6 @@
 {
   "name": "vue-segment-analytics",
-  "version": "0.4.2",
+  "version": "0.3.3",
   "description": "Vue plugin for segment analytics.js",
   "main": "dist/vue-segment-analytics.js",
   "scripts": {
