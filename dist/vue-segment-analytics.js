@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.4.1
+ * vue-segment-analytics v0.4.2
  * (c) 2021 Ryan Stuart
  * Released under the MIT License.
  */
@@ -58,7 +58,7 @@
     };
 
     // Add a version to keep track of what's in the wild.
-    analytics.SNIPPET_VERSION = '4.0.0';
+    analytics.SNIPPET_VERSION = '4.1.0';
 
     // For each of our methods, generate a queueing stub.
     var _iteratorNormalCompletion = true;

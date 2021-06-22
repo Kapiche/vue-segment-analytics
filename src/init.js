@@ -64,7 +64,7 @@ export default function init (config, callback) {
   }
 
   // Add a version to keep track of what's in the wild.
-  analytics.SNIPPET_VERSION = '4.0.0';
+  analytics.SNIPPET_VERSION = '4.1.0';
 
   // For each of our methods, generate a queueing stub.
   for (let key of analytics.methods) {
