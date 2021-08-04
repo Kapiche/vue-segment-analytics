@@ -1,15 +1,17 @@
 /*!
- * vue-segment-analytics v0.4.2
+ * vue-segment-analytics v0.4.3
  * (c) 2021 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('load-script')) :
   typeof define === 'function' && define.amd ? define(['load-script'], factory) :
-  (global = global || self, global.VueSegmentAnalytics = factory(global.loadScript));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.VueSegmentAnalytics = factory(global.loadScript));
 }(this, (function (loadScript) { 'use strict';
 
-  loadScript = loadScript && loadScript.hasOwnProperty('default') ? loadScript['default'] : loadScript;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var loadScript__default = /*#__PURE__*/_interopDefaultLegacy(loadScript);
 
   function init(config, callback) {
     if (!config.id || !config.id.length) {
@@ -87,8 +89,8 @@
     }
 
     if (config.debug === false) {
-      var source = 'https://cdn.segment.com/analytics.js/v1/' + config.id + '/analytics.min.js';
-      loadScript(source, function (error, script) {
+      var source = config.cdnHost + '/analytics.js/v1/' + config.id + '/analytics.min.js';
+      loadScript__default['default'](source, function (error, script) {
         if (error) {
           console.warn('Ops! Is not possible to load Segment Analytics script');
           return;
@@ -126,11 +128,15 @@
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     var config = Object.assign({
+      cdnHost: 'https://cdn.segment.com',
       debug: false,
       pageCategory: ''
     }, options);
+    if (config.cdnHost.endsWith('/')) {
+      config.cdnHost = config.cdnHost.slice(0, -1);
+    }
 
-    var analytics = init(config, function () {});
+    init(config, function () {});
 
     // Page tracking
     if (config.router !== undefined) {

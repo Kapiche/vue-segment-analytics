@@ -72,7 +72,7 @@ export default function init (config, callback) {
   }
 
   if (config.debug === false) {
-    const source = `https://cdn.segment.com/analytics.js/v1/${config.id}/analytics.min.js`
+    const source = `${config.cdnHost}/analytics.js/v1/${config.id}/analytics.min.js`
     loadScript(source, function (error, script) {
       if (error) {
         console.warn('Ops! Is not possible to load Segment Analytics script')

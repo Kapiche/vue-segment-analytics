@@ -7,9 +7,13 @@ import init from './init'
  */
 function install (Vue, options = {}) {
   const config = Object.assign({
+    cdnHost: 'https://cdn.segment.com',
     debug: false,
     pageCategory: '',
   }, options)
+  if (config.cdnHost.endsWith('/')) {
+    config.cdnHost = config.cdnHost.slice(0, -1)
+  }
 
   let analytics = init(config, () => {})
   
