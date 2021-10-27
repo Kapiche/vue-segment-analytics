@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.4.3
+ * vue-segment-analytics v0.5.1
  * (c) 2021 Ryan Stuart
  * Released under the MIT License.
  */
@@ -38,7 +38,28 @@
     analytics.invoked = true;
 
     // A list of the methods in Analytics.js to stub.
-    analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on'];
+    analytics.methods = [
+      'trackSubmit',
+      'trackClick',
+      'trackLink',
+      'trackForm',
+      'pageview',
+      'identify',
+      'reset',
+      'group',
+      'track',
+      'ready',
+      'alias',
+      'debug',
+      'page',
+      'once',
+      'off',
+      'on',
+      'addSourceMiddleware',
+      'addIntegrationMiddleware',
+      'setAnonymousId',
+      'addDestinationMiddleware'
+    ];
 
     // Define a factory to create stubs. These are placeholders
     // for methods in Analytics.js so that you never have to wait
@@ -60,7 +81,7 @@
     };
 
     // Add a version to keep track of what's in the wild.
-    analytics.SNIPPET_VERSION = '4.1.0';
+    analytics.SNIPPET_VERSION = '4.13.2';
 
     // For each of our methods, generate a queueing stub.
     var _iteratorNormalCompletion = true;
@@ -92,7 +113,7 @@
       var source = config.cdnHost + '/analytics.js/v1/' + config.id + '/analytics.min.js';
       loadScript__default['default'](source, function (error, script) {
         if (error) {
-          console.warn('Ops! Is not possible to load Segment Analytics script');
+          console.warn('Oops! Is not possible to load Segment Analytics script');
           return;
         }
 
