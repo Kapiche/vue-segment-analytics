@@ -1,6 +1,7 @@
 [![downloads](https://img.shields.io/npm/dm/vue-segment-analytics.svg)](https://www.npmjs.com/package/vue-segment-analytics)
 [![npm](https://img.shields.io/npm/v/vue-segment-analytics.svg)](https://npmjs.com/package/vue-segment-analytics)
 [![CI](https://github.com/Kapiche/vue-segment-analytics/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Kapiche/vue-segment-analytics/actions/workflows/ci.yml)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/5347/badge)](https://bestpractices.coreinfrastructure.org/projects/5347)
 
 # vue-segment-analytics
 
