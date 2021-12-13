@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "load-script": "~2.0.0",
-    "rollup": "~2.60.0",
+    "rollup": "~2.61.1",
     "rollup-plugin-babel": "~3.0.7"
   }
 }
