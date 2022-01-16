@@ -26,15 +26,15 @@
   },
   "homepage": "https://github.com/Kapiche/vue-segment-analytics",
   "devDependencies": {
-    "babel-core": "~6.26.3",
-    "babel-eslint": "~10.1.0",
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "@microsoft/eslint-formatter-sarif": "^2.1.5",
     "babel-loader": "~7.1.5",
     "babel-preset-env": "~1.7.0",
     "eslint": "~8.6.0",
-    "eslint-friendly-formatter": "~4.0.1",
+    "eslint-formatter-friendly": "~7.0.0",
     "eslint-loader": "~1.7.1",
-    "friendly-errors-webpack-plugin": "~1.7.0",
-    "@microsoft/eslint-formatter-sarif": "^2.1.5"
+    "@nuxt/friendly-errors-webpack-plugin": "~2.5.2"
   },
   "dependencies": {
     "load-script": "~2.0.0",
