@@ -10,6 +10,7 @@ jobs:
   lint:
 
     runs-on: ubuntu-latest
+    needs: dependency-scan
     strategy:
       max-parallel: 4
       matrix:
@@ -43,6 +44,7 @@ jobs:
   semgrep:
     name: semgrep
     runs-on: ubuntu-latest
+    needs: dependency-scan
     if: (github.actor != 'dependabot[bot]')
     steps:
       - uses: actions/checkout@v2
@@ -55,7 +57,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
-
+    needs: dependency-scan
     strategy:
       fail-fast: false
       matrix:
@@ -90,4 +92,32 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
 
+  dependency-scan:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
 
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Run vulnerability scanner in repo mode
+      if: github.actor != 'dependabot[bot]'
+      uses: aquasecurity/trivy-action@0.2.1
+      with:
+        scan-type: 'fs'
+        ignore-unfixed: false
+        format: 'table'
+        vuln-type: 'library'
+        severity: 'CRITICAL,HIGH'
+
+    - name: Run vulnerability scanner in repo mode
+      if: github.actor == 'dependabot[bot]'
+      uses: aquasecurity/trivy-action@0.2.1
+      with:
+        scan-type: 'fs'
+        ignore-unfixed: false
+        format: 'table'
+        vuln-type: 'library'
+        severity: 'MEDIUM,HIGH,CRITICAL'
