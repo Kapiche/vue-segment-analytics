@@ -29,7 +29,7 @@
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
     "@microsoft/eslint-formatter-sarif": "^2.1.5",
-    "babel-loader": "~7.1.5",
+    "babel-loader": "~8.2.3",
     "babel-preset-env": "~1.7.0",
     "eslint": "~8.7.0",
     "eslint-formatter-friendly": "~7.0.0",
