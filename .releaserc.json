@@ -13,13 +13,32 @@
         "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
       }
     }],
-    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {
+          "types": [
+            {"type": "feat", "section": "Features"},
+            {"type": "fix", "section": "Bug Fixes"},
+            {"type": "chore", "hidden": false, "section": "Other"},
+            {"type": "build", "hidden": false, "section": "Other"},
+            {"type": "ci", "hidden": false, "section": "Other"},
+            {"type": "docs", "hidden": false, "section": "Other"},
+            {"type": "style", "hidden": false, "section": "Other"},
+            {"type": "refactor", "hidden": false, "section": "Other"},
+            {"type": "perf", "hidden": false, "section": "Other"},
+            {"type": "test", "hidden": false, "section": "Other"}
+          ]
+        }
+      }
+    ],
     [
       "@semantic-release/changelog",
       {
         "changelogFile": "CHANGELOG.md",
         "changelogTitle": "# Vue Segment Analytics Changelog"
-      }
+      },
     ],
     [
       "@semantic-release/npm",
