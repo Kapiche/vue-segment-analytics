@@ -1,13 +1,13 @@
 /*!
  * vue-segment-analytics v0.5.1
- * (c) 2021 Ryan Stuart
+ * (c) 2022 Ryan Stuart
  * Released under the MIT License.
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('load-script')) :
   typeof define === 'function' && define.amd ? define(['load-script'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.VueSegmentAnalytics = factory(global.loadScript));
-}(this, (function (loadScript) { 'use strict';
+})(this, (function (loadScript) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -38,28 +38,7 @@
     analytics.invoked = true;
 
     // A list of the methods in Analytics.js to stub.
-    analytics.methods = [
-      'trackSubmit',
-      'trackClick',
-      'trackLink',
-      'trackForm',
-      'pageview',
-      'identify',
-      'reset',
-      'group',
-      'track',
-      'ready',
-      'alias',
-      'debug',
-      'page',
-      'once',
-      'off',
-      'on',
-      'addSourceMiddleware',
-      'addIntegrationMiddleware',
-      'setAnonymousId',
-      'addDestinationMiddleware'
-    ];
+    analytics.methods = ['trackSubmit', 'trackClick', 'trackLink', 'trackForm', 'pageview', 'identify', 'reset', 'group', 'track', 'ready', 'alias', 'debug', 'page', 'once', 'off', 'on', 'addSourceMiddleware', 'addIntegrationMiddleware', 'setAnonymousId', 'addDestinationMiddleware'];
 
     // Define a factory to create stubs. These are placeholders
     // for methods in Analytics.js so that you never have to wait
@@ -111,7 +90,7 @@
 
     if (config.debug === false) {
       var source = config.cdnHost + '/analytics.js/v1/' + config.id + '/analytics.min.js';
-      loadScript__default['default'](source, function (error, script) {
+      loadScript__default["default"](source, function (error, script) {
         if (error) {
           console.warn('Oops! Is not possible to load Segment Analytics script');
           return;
@@ -187,4 +166,4 @@
 
   return index;
 
-})));
+}));

@@ -5,18 +5,6 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: eslint
-    versions:
-    - 7.18.0
-    - 7.19.0
-    - 7.21.0
-    - 7.22.0
-    - 7.23.0
-    - 7.24.0
-  - dependency-name: eslint-loader
-    versions:
-    - 1.9.0
 
 - package-ecosystem: "github-actions"
   directory: "/"

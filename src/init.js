@@ -41,7 +41,11 @@ export default function init (config, callback) {
     'page',
     'once',
     'off',
-    'on'
+    'on',
+    'addSourceMiddleware',
+    'addIntegrationMiddleware',
+    'setAnonymousId',
+    'addDestinationMiddleware'
   ]
 
   // Define a factory to create stubs. These are placeholders
@@ -64,7 +68,7 @@ export default function init (config, callback) {
   }
 
   // Add a version to keep track of what's in the wild.
-  analytics.SNIPPET_VERSION = '4.1.0';
+  analytics.SNIPPET_VERSION = '4.13.2';
 
   // For each of our methods, generate a queueing stub.
   for (let key of analytics.methods) {
@@ -75,7 +79,7 @@ export default function init (config, callback) {
     const source = `${config.cdnHost}/analytics.js/v1/${config.id}/analytics.min.js`
     loadScript(source, function (error, script) {
       if (error) {
-        console.warn('Ops! Is not possible to load Segment Analytics script')
+        console.warn('Oops! Is not possible to load Segment Analytics script')
         return
       }
 
