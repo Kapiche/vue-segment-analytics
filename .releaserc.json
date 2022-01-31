@@ -38,7 +38,7 @@
       {
         "changelogFile": "CHANGELOG.md",
         "changelogTitle": "# Vue Segment Analytics Changelog"
-      },
+      }
     ],
     [
       "@semantic-release/npm",
