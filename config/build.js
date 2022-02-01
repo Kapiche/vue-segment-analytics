@@ -1,6 +1,6 @@
 var banner = require('./banner')
 var rollup = require('rollup')
-var babel = require('rollup-plugin-babel')
+var babel = require('@rollup/plugin-babel')
 var pack = require('../package.json')
 
 
