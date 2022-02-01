@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+concurrency: 
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
 
@@ -26,7 +30,11 @@ jobs:
     - name: Harden Runner
       uses: step-security/harden-runner@14dc64f30986eaa2ad2dddcec073f5aab18e5a24
       with:
-        egress-policy: audit
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          github.com:443
+          registry.npmjs.org:443
 
     - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -61,7 +69,11 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@14dc64f30986eaa2ad2dddcec073f5aab18e5a24
         with:
-          egress-policy: audit
+          egress-policy: block
+          allowed-endpoints: >
+            github.com:443
+            metrics.semgrep.dev:443
+            semgrep.dev:443
 
       - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
       - uses: returntocorp/semgrep-action@aaece4ba8a39e5e36b6280449c792da370666cc4 # v1
@@ -90,7 +102,11 @@ jobs:
     - name: Harden Runner
       uses: step-security/harden-runner@14dc64f30986eaa2ad2dddcec073f5aab18e5a24
       with:
-        egress-policy: audit
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          github.com:443
+          registry.npmjs.org:443
 
     - name: Checkout repository
       uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
@@ -125,7 +141,11 @@ jobs:
     - name: Harden Runner
       uses: step-security/harden-runner@14dc64f30986eaa2ad2dddcec073f5aab18e5a24
       with:
-        egress-policy: audit
+        egress-policy: block
+        allowed-endpoints: >
+          api.github.com:443
+          github.com:443
+          objects.githubusercontent.com:443
 
     - name: Checkout the code
       uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
