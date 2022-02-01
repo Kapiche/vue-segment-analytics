@@ -1,5 +1,5 @@
 /*!
- * vue-segment-analytics v0.5.1
+ * vue-segment-analytics v0.5.2
  * (c) 2022 Ryan Stuart
  * Released under the MIT License.
  */
