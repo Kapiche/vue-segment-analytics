@@ -56,7 +56,7 @@ jobs:
         npm run lint
 
     - name: Upload eslint report
-      uses: github/codeql-action/upload-sarif@1a927e9307bc11970b2c679922ebc4d03a5bd980 # v1
+      uses: github/codeql-action/upload-sarif@2b46439dd5477d8a1659811cdc500d35e601a1cb # v1
       with:
         sarif_file: results.sarif
 
@@ -74,9 +74,10 @@ jobs:
             github.com:443
             metrics.semgrep.dev:443
             semgrep.dev:443
+            api.snapcraft.io:443
 
       - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
-      - uses: returntocorp/semgrep-action@aaece4ba8a39e5e36b6280449c792da370666cc4 # v1
+      - uses: returntocorp/semgrep-action@b4ae418326a5e8bd4fc3b0b658695aee09ca0e2a # v1
         with:
           auditOn: push
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
@@ -113,7 +114,7 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@1a927e9307bc11970b2c679922ebc4d03a5bd980 # v1
+      uses: github/codeql-action/init@2b46439dd5477d8a1659811cdc500d35e601a1cb # v1
       with:
         languages: ${{ matrix.language }}
         # If you wish to specify custom queries, you can do so here or in a config file.
@@ -131,7 +132,7 @@ jobs:
         npm run build
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@1a927e9307bc11970b2c679922ebc4d03a5bd980 # v1
+      uses: github/codeql-action/analyze@2b46439dd5477d8a1659811cdc500d35e601a1cb # v1
 
   dependency-scan:
     if: github.event.pull_request.draft == false
@@ -146,6 +147,8 @@ jobs:
           api.github.com:443
           github.com:443
           objects.githubusercontent.com:443
+          ghcr.io:443
+          pkg-containers.githubusercontent.com:443
 
     - name: Checkout the code
       uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
