@@ -74,6 +74,7 @@ jobs:
             github.com:443
             metrics.semgrep.dev:443
             semgrep.dev:443
+            api.snapcraft.io:443
 
       - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
       - uses: returntocorp/semgrep-action@b4ae418326a5e8bd4fc3b0b658695aee09ca0e2a # v1
@@ -146,6 +147,8 @@ jobs:
           api.github.com:443
           github.com:443
           objects.githubusercontent.com:443
+          ghcr.io:443
+          pkg-containers.githubusercontent.com:443
 
     - name: Checkout the code
       uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
