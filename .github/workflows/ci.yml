@@ -77,7 +77,7 @@ jobs:
             api.snapcraft.io:443
 
       - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
-      - uses: returntocorp/semgrep-action@6808f9979438f48d88ec7424ce394d0fcb0e6833 # v1
+      - uses: returntocorp/semgrep-action@b93bc50eb1bd1a016cf749808608ee465db13f9d # v1
         with:
           auditOn: push
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
@@ -157,7 +157,7 @@ jobs:
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor != 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@a7a829a4345428ddd92ca57b18257440f6a18c90 # 0.2.1
+      uses: aquasecurity/trivy-action@40c4ca9e7421287d0c5576712fdff370978f9c3c # 0.2.1
       with:
         scan-type: 'fs'
         ignore-unfixed: false
@@ -168,7 +168,7 @@ jobs:
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor == 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@a7a829a4345428ddd92ca57b18257440f6a18c90 # 0.2.1
+      uses: aquasecurity/trivy-action@40c4ca9e7421287d0c5576712fdff370978f9c3c # 0.2.1
       with:
         scan-type: 'fs'
         ignore-unfixed: false
