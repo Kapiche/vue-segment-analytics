@@ -28,7 +28,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@babel/eslint-parser": "^7.16.5",
-    "@microsoft/eslint-formatter-sarif": "^2.1.5",
+    "@microsoft/eslint-formatter-sarif": "^3.0.0",
     "@nuxt/friendly-errors-webpack-plugin": "~2.5.2",
     "babel-loader": "~8.2.3",
     "babel-preset-env": "~1.7.0",
