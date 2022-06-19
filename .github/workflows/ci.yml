@@ -165,6 +165,7 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'CRITICAL,HIGH'
+        security-checks: 'vuln,config,secret'
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor == 'dependabot[bot]'
@@ -176,3 +177,4 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'MEDIUM,HIGH,CRITICAL'
+        security-checks: 'vuln,config,secret'
