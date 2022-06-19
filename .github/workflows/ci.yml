@@ -79,9 +79,7 @@ jobs:
       - uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
       - uses: returntocorp/semgrep-action@de054130d26eb489ba1c25e62e2ef4b72b97a1a5 # v1
         with:
-          auditOn: push
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
-          publishDeployment: 2081
 
   analyze:
     permissions:
@@ -165,6 +163,7 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'CRITICAL,HIGH'
+        security-checks: 'vuln,config,secret'
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor == 'dependabot[bot]'
@@ -176,3 +175,4 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'MEDIUM,HIGH,CRITICAL'
+        security-checks: 'vuln,config,secret'
