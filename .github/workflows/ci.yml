@@ -106,6 +106,7 @@ jobs:
           api.github.com:443
           github.com:443
           registry.npmjs.org:443
+          uploads.github.com:443
 
     - name: Checkout repository
       uses: actions/checkout@629c2de402a417ea7690ca6ce3f33229e27606a5 # v2
