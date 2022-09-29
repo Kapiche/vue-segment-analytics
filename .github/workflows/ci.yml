@@ -77,7 +77,7 @@ jobs:
             api.snapcraft.io:443
 
       - uses: actions/checkout@61b9e3751b92087fd0b06925ba6dd6314e06f089 # v2
-      - uses: returntocorp/semgrep-action@79e51fcf8da3baf8ba040a61e5dcb44f35381f2a # v1
+      - uses: returntocorp/semgrep-action@64cc85aff026a43f3dc09bd8932502122d4e0331 # v1
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
 
