@@ -36,7 +36,7 @@ jobs:
           github.com:443
           registry.npmjs.org:443
 
-    - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v2
+    - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v2
       with:
@@ -76,7 +76,7 @@ jobs:
             semgrep.dev:443
             api.snapcraft.io:443
 
-      - uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v2
+      - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v2
       - uses: returntocorp/semgrep-action@2e352e1a85f5c8722b894e67bed8b2f8874ad628 # v1
         with:
           publishToken: ${{ secrets.SEMGREP_APP_TOKEN }}
@@ -110,7 +110,7 @@ jobs:
           objects.githubusercontent.com:443
 
     - name: Checkout repository
-      uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v2
+      uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v2
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -151,7 +151,7 @@ jobs:
           pkg-containers.githubusercontent.com:443
 
     - name: Checkout the code
-      uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v2
+      uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3 # v2
       with:
         fetch-depth: 0
 
