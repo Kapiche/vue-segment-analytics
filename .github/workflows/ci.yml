@@ -29,7 +29,7 @@ jobs:
             api.github.com:443
 
       - name: Code Review
-        uses: step-security/ai-codewise@v1
+        uses: step-security/ai-codewise@e352b2a5372e83d61ad449550deb2f3c61089e09 # v1.0.0
 
   lint:
     permissions:
