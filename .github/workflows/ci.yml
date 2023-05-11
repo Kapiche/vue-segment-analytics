@@ -14,8 +14,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
+  code-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
 
+      - name: Code Review
+        uses: step-security/ai-codewise@e352b2a5372e83d61ad449550deb2f3c61089e09 # v1.0.0
+
+  lint:
     permissions:
       contents: read # for actions/checkout to fetch code
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
