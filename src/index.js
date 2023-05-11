@@ -10,12 +10,13 @@ function install (Vue, options = {}) {
     cdnHost: 'https://cdn.segment.com',
     debug: false,
     pageCategory: '',
+    callback: () => {}
   }, options)
   if (config.cdnHost.endsWith('/')) {
     config.cdnHost = config.cdnHost.slice(0, -1)
   }
 
-  let analytics = init(config, () => {})
+  let analytics = init(config)
   
   // Page tracking
   if (config.router !== undefined) {
