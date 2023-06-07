@@ -36,7 +36,7 @@
     "eslint": "~8.42.0",
     "eslint-formatter-friendly": "~7.0.0",
     "eslint-webpack-plugin": "~4.0.0",
-    "rollup": "~3.23.0",
+    "rollup": "~3.24.0",
     "rollup-plugin-babel": "~3.0.7"
   },
   "dependencies": {
