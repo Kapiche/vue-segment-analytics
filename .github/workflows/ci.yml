@@ -21,7 +21,7 @@ jobs:
       pull-requests: read
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@55d479fb1c5bcad5a4f9099a5d9f37c8857b2845 # v2.4.1
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -44,7 +44,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@55d479fb1c5bcad5a4f9099a5d9f37c8857b2845
+      uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -83,7 +83,7 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@55d479fb1c5bcad5a4f9099a5d9f37c8857b2845
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -115,7 +115,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@55d479fb1c5bcad5a4f9099a5d9f37c8857b2845
+      uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -156,7 +156,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@55d479fb1c5bcad5a4f9099a5d9f37c8857b2845
+      uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09
       with:
         egress-policy: block
         allowed-endpoints: >
