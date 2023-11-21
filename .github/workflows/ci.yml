@@ -21,7 +21,7 @@ jobs:
       pull-requests: read
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423 # v2.6.0
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895 # v2.6.1
         with:
           disable-sudo: true
           egress-policy: block
@@ -44,7 +44,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423
+      uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -72,7 +72,7 @@ jobs:
         npm run lint
 
     - name: Upload eslint report
-      uses: github/codeql-action/upload-sarif@74483a38d39275f33fcff5f35b679b5ca4a26a99 # v1
+      uses: github/codeql-action/upload-sarif@66b90a5db151a8042fa97405c6cf843bbe433f7b # v1
       with:
         sarif_file: results.sarif
 
@@ -83,7 +83,7 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423
+        uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -115,7 +115,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423
+      uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -130,7 +130,7 @@ jobs:
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@74483a38d39275f33fcff5f35b679b5ca4a26a99 # v1
+      uses: github/codeql-action/init@66b90a5db151a8042fa97405c6cf843bbe433f7b # v1
       with:
         languages: ${{ matrix.language }}
         # If you wish to specify custom queries, you can do so here or in a config file.
@@ -148,7 +148,7 @@ jobs:
         npm run build
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@74483a38d39275f33fcff5f35b679b5ca4a26a99 # v1
+      uses: github/codeql-action/analyze@66b90a5db151a8042fa97405c6cf843bbe433f7b # v1
 
   dependency-scan:
     if: github.event.pull_request.draft == false
@@ -156,7 +156,7 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@1b05615854632b887b69ae1be8cbefe72d3ae423
+      uses: step-security/harden-runner@eb238b55efaa70779f274895e782ed17c84f2895
       with:
         egress-policy: block
         allowed-endpoints: >
@@ -173,7 +173,7 @@ jobs:
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor != 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@41f05d9ecffa2ed3f1580af306000f734b733e54 # 0.2.1
+      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.2.1
       with:
         scan-type: 'fs'
         ignore-unfixed: false
@@ -185,7 +185,7 @@ jobs:
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor == 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@41f05d9ecffa2ed3f1580af306000f734b733e54 # 0.2.1
+      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.2.1
       with:
         scan-type: 'fs'
         ignore-unfixed: false
