@@ -37,7 +37,7 @@
     "eslint-formatter-friendly": "~7.0.0",
     "eslint-webpack-plugin": "~4.0.0",
     "rollup": "~3.29.1",
-    "rollup-plugin-babel": "~3.0.7"
+    "rollup-plugin-babel": "^4.4.0"
   },
   "dependencies": {
     "load-script": "~2.0.0"
