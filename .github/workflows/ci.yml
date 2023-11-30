@@ -31,6 +31,10 @@ jobs:
       - name: Code Review
         uses: step-security/ai-codewise@e352b2a5372e83d61ad449550deb2f3c61089e09 # v1.0.0
 
+      - name: Nullify DAST Action
+        uses: Nullify-Platform/dast-action@da7b1a98b6ceac9f9f64c7511c0877ceb2135b73 # v0.0.5
+            
+
   lint:
     permissions:
       contents: read # for actions/checkout to fetch code
@@ -173,7 +177,7 @@ jobs:
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor != 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.2.1
+      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.14.0
       with:
         scan-type: 'fs'
         ignore-unfixed: false
@@ -181,11 +185,11 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'CRITICAL,HIGH'
-        security-checks: 'vuln,config,secret'
+        scanners: 'vuln,config,secret'
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor == 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.2.1
+      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.14.0
       with:
         scan-type: 'fs'
         ignore-unfixed: false
@@ -193,4 +197,4 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'MEDIUM,HIGH,CRITICAL'
-        security-checks: 'vuln,config,secret'
+        scanners: 'vuln,config,secret'
