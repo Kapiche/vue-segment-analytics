@@ -10,8 +10,8 @@ async function build (dev = false) {
     external: ['load-script'],
     plugins: [
       babel({
-        babelrc: true,
-        babelHelpers: 'bundled'
+        babelHelpers: 'bundled',
+        presets: [["env", { "modules": false }]]
       })
     ]
   })
