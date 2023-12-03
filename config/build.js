@@ -11,7 +11,7 @@ async function build (dev = false) {
     plugins: [
       babel({
         babelHelpers: 'bundled',
-        presets: [["env", { "modules": false }]]
+        presets: [["@babel/preset-env", { "modules": false }]]
       })
     ]
   })
