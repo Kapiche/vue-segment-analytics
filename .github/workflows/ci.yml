@@ -78,6 +78,9 @@ jobs:
 
   semgrep:
     name: semgrep
+    permissions:
+      contents: read  # for actions/checkout to fetch code
+      pull-requests: write  # for semgrep to add comments in pull request
     runs-on: ubuntu-latest
     needs: dependency-scan
     if: (github.actor != 'dependabot[bot]')
