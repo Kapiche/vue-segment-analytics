@@ -1,7 +1,7 @@
-var banner = require('./banner')
-var rollup = require('rollup')
-var babel = require('@rollup/plugin-babel')
-var pack = require('../package.json')
+import banner from './banner'
+import rollup from 'rollup'
+import babel from '@rollup/plugin-babel'
+import pack from '../package.json'
 
 
 async function build (dev = false) {
@@ -13,7 +13,7 @@ async function build (dev = false) {
         babelHelpers: 'bundled',
         presets: [["@babel/preset-env", { "modules": false }]]
       })
-    ]
+    ],
   })
 
   await bundle.write({
