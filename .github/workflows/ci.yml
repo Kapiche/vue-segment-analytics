@@ -40,7 +40,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [18.x, 20.x]
 
     steps:
     - name: Harden Runner
@@ -78,6 +78,9 @@ jobs:
 
   semgrep:
     name: semgrep
+    permissions:
+      contents: read  # for actions/checkout to fetch code
+      pull-requests: write  # for semgrep to add comments in pull request
     runs-on: ubuntu-latest
     needs: dependency-scan
     if: (github.actor != 'dependabot[bot]')
@@ -173,7 +176,7 @@ jobs:
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor != 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.2.1
+      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.14.0
       with:
         scan-type: 'fs'
         ignore-unfixed: false
@@ -181,11 +184,11 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'CRITICAL,HIGH'
-        security-checks: 'vuln,config,secret'
+        scanners: 'vuln,config,secret'
 
     - name: Run vulnerability scanner in repo mode
       if: github.actor == 'dependabot[bot]'
-      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.2.1
+      uses: aquasecurity/trivy-action@2b6a709cf9c4025c5438138008beaddbb02086f0 # 0.14.0
       with:
         scan-type: 'fs'
         ignore-unfixed: false
@@ -193,4 +196,4 @@ jobs:
         format: 'table'
         vuln-type: 'library'
         severity: 'MEDIUM,HIGH,CRITICAL'
-        security-checks: 'vuln,config,secret'
+        scanners: 'vuln,config,secret'
