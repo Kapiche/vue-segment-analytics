@@ -17,8 +17,6 @@ jobs:
     permissions:
       # Needed to upload the results to code-scanning dashboard.
       security-events: write
-      actions: read
-      contents: read
       id-token: write
 
     steps:
@@ -44,9 +42,6 @@ jobs:
         with:
           results_file: results.sarif
           results_format: sarif
-          # Read-only PAT token. To create it,
-          # follow the steps in https://github.com/ossf/scorecard-action#pat-token-creation.
-          repo_token: ${{ secrets.SCORECARD_READ_TOKEN }}
           # Publish the results to enable scorecard badges. For more details, see
           # https://github.com/ossf/scorecard-action#publishing-results.
           # For private repositories, `publish_results` will automatically be set to `false`,
