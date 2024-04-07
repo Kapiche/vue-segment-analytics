@@ -17,8 +17,10 @@ jobs:
   code-review:
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: read
-      pull-requests: read
+      security-events: write
+
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@63c24ba6bd7ba022e95695ff85de572c04a18142 # v2.7.0
@@ -27,6 +29,8 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             api.github.com:443
+            github.com:443
+            objects.githubusercontent.com:443
 
       - name: Code Review
         uses: step-security/ai-codewise@e352b2a5372e83d61ad449550deb2f3c61089e09 # v1.0.0
