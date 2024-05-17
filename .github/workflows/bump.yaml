@@ -23,7 +23,7 @@ jobs:
             github.com:443
             registry.npmjs.org:443
 
-      - uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v2
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v2
         with:
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
