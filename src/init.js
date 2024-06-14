@@ -6,6 +6,10 @@ export default function init (config, callback) {
     return
   }
 
+  if (!callback) {
+    callback = config.callback;
+  }
+
   // Create a queue, but don't obliterate an existing one!
   var analytics = window.analytics = window.analytics || []
 
